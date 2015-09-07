@@ -21,8 +21,8 @@ Attributes
 
 * debug
 
-e.g.
-#### zookeepr::default
+#### zookeepr::debug
+
 <table>
   <tr>
     <th>Key</th>
