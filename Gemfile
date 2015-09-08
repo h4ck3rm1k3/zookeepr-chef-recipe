@@ -16,3 +16,7 @@ gem 'berkshelf'
 
 gem "test-kitchen"
 gem "kitchen-vagrant"
+gem "vagrant", :path => '../../../../vagrant'
+gem "dep-selector-libgecode"
+gem "dep_selector"
+gem "foodcritic"
