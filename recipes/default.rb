@@ -14,8 +14,7 @@
 #    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #    GNU General Public License for more details.
 #include_recipe "python::#{node['python']['install_method']}"
-
-include_recipe 'poise-python'
+include_recipe 'build-essential'
 
 application 'zookeepr' do
   path       '/srv/zookeepr'
