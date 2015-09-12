@@ -1,4 +1,5 @@
 source "https://supermarket.chef.io"
+cookbook 'git', '~> 4.3.4'
 
 cookbook 'poise', gem: 'poise'
 cookbook 'application_python', gem: 'poise-application-python'

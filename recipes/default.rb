@@ -32,7 +32,11 @@ include_recipe "supervisor"
 include_recipe "python"
 #include_recipe "zookeepr"
 
+git_client 'default' do
+  action :install
+end
+
 application 'zookeepr' do
   path       '/srv/zookeepr'
-  repository 'git@github.com:flosokaks/zookeepr.git'
+  repository 'https://github.com/flosokaks/zookeepr.git'
 end
