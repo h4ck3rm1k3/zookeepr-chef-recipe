@@ -21,3 +21,5 @@ gem "dep-selector-libgecode"
 gem "dep_selector"
 gem "foodcritic"
 gem 'poise-application', github: 'poise/application'
+
+gem "chef", :path => '../../../../chef'
