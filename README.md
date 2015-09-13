@@ -67,4 +67,4 @@ License and Authors
 -------------------
 Authors:
 
-James Michael DuPont <h4ck3rm1k3>
+James Michael DuPont (h4ck3rm1k3) <jamesmikedupont@gmail.com>
