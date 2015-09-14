@@ -38,9 +38,20 @@ include_recipe 'poise-python'
 git_client 'default' do
    action :install
  end
- application 'zookeepr' do
-   path       '/srv/zookeepr'
-   repository 'https://github.com/flosokaks/zookeepr.git'
+application 'zookeepr' do
+  path       '/srv/zookeepr'
+  repository 'https://github.com/flosokaks/zookeepr.git'
+  migrate true
+  revision "master"
+  packages ["libpq-dev", "git-core"]
+
+  database do
+    database "zk"
+    engine "postgresql_psycopg2"
+    username "zookeepr"
+    password "zookeepr"
+  end  
+  
  end
 ##########################################
 

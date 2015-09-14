@@ -53,6 +53,11 @@ Include `zookeepr` in your node's `run_list`:
 }
 ```
 
+Testing
+-------
+
+    rspec spec/first_spec.rb
+
 Contributing
 ------------
 
