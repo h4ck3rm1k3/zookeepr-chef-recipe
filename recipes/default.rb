@@ -16,27 +16,31 @@
 #include_recipe "python::#{node['python']['install_method']}"
 #include_recipe 'build-essential'
 
-#include_recipe 'build-essential::default'
-#include_recipe "python::default"
-include_recipe "application"
-include_recipe "build-essential"
-include_recipe "gunicorn"
+#include_recipe "application_python"
 #include_recipe "poise"
 #include_recipe "poise-languages"
-include_recipe "poise-python"
-#include_recipe "application_python"
 #include_recipe "poise-service"
-include_recipe "supervisor"
+#include_recipe "python::default"
 #include_recipe "yum"
 #include_recipe "yum-epel"
-include_recipe "python"
 #include_recipe "zookeepr"
+#include_recipe 'build-essential::default'
+include_recipe 'poise-python'
 
+# old code
+##########################################
+# include_recipe "application"
+# include_recipe "build-essential"
+# include_recipe "gunicorn"
+# include_recipe "poise-python"
+# include_recipe "python"
+# include_recipe "supervisor"
 git_client 'default' do
-  action :install
-end
+   action :install
+ end
+ application 'zookeepr' do
+   path       '/srv/zookeepr'
+   repository 'https://github.com/flosokaks/zookeepr.git'
+ end
+##########################################
 
-application 'zookeepr' do
-  path       '/srv/zookeepr'
-  repository 'https://github.com/flosokaks/zookeepr.git'
-end
