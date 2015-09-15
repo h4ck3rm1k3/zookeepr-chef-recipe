@@ -24,3 +24,9 @@ gem 'poise-application' , :path => '../../../../application'
 gem 'poise-application-python' , :path => '../../../../application_python'
 
 gem "chef", :path => '../../../../chef'
+gem "rake"
+gem 'rspec'
+gem 'bundler'
+gem 'rubocop'
+gem 'yard'
+gem 'chefspec'
