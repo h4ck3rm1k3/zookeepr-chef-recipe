@@ -1,3 +1,6 @@
+rake :
+	bundle exec rake
+
 test_apply:
 	bundle exec  chef-apply recipes/default.rb  -l debug
 

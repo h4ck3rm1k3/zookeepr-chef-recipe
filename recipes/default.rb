@@ -13,31 +13,12 @@
 #    but WITHOUT ANY WARRANTY; without even the implied warranty of
 #    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #    GNU General Public License for more details.
-#include_recipe "python::#{node['python']['install_method']}"
-#include_recipe 'build-essential'
 
-#include_recipe "application_python"
-#include_recipe "poise"
-#include_recipe "poise-languages"
-#include_recipe "poise-service"
-#include_recipe "python::default"
-#include_recipe "yum"
-#include_recipe "yum-epel"
-#include_recipe "zookeepr"
-#include_recipe 'build-essential::default'
+#include_recipe 'git::default'
 include_recipe 'poise-python'
+include_recipe "database::postgresql"
+include_recipe "git::default"
 
-# old code
-##########################################
-# include_recipe "application"
-# include_recipe "build-essential"
-# include_recipe "gunicorn"
-# include_recipe "poise-python"
-# include_recipe "python"
-# include_recipe "supervisor"
-git_client 'default' do
-   action :install
- end
 application 'zookeepr' do
   path       '/srv/zookeepr'
   repository 'https://github.com/flosokaks/zookeepr.git'
@@ -45,13 +26,28 @@ application 'zookeepr' do
   revision "master"
   packages ["libpq-dev", "git-core"]
 
-  database do
-    database "zk"
-    engine "postgresql_psycopg2"
-    username "zookeepr"
-    password "zookeepr"
-  end  
-  
- end
+  # database do
+  #   database "zk"
+  #   engine "postgresql_psycopg2"
+  #   username "zookeepr"
+  #   password "zookeepr"
+  # end  
+    
+end
+
+
+postgresql_database 'zk' do
+  connection(
+    :host      => '127.0.0.1',
+    :port      => 5432,
+    :username  => 'zookeepr',
+    :password  => node['postgresql']['password']['zookeepr']
+  )
+  action :create
+end
 ##########################################
 
+
+git_client 'default' do
+   action :install
+ end
