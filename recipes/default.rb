@@ -19,7 +19,7 @@ include_recipe 'poise-python'
 include_recipe "database::postgresql"
 include_recipe "apt::default"
 include_recipe "git::default"
-
+include_recipe "python::package"
 
 application 'zookeepr' do
   path       '/srv/zookeepr'

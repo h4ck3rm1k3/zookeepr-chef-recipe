@@ -4,6 +4,7 @@ extension 'halite'
 cookbook 'application', path: '../application'
 cookbook 'application_python', path: '../application_python'
 #cookbook 'application_git', path: '../application_git'
+#cookbook 'application_git', gem: 'poise-application-git'
 cookbook 'application_git', gem: 'poise-application-git'
 cookbook 'apt',  path: '../apt/'
 cookbook 'chef-sugar', path: '../chef-sugar/'
@@ -16,6 +17,6 @@ cookbook 'poise-python', gem: 'poise-python'
 cookbook 'poise-service', gem: 'poise-service'
 cookbook 'postgresql', path:  '../postgresql/'
 #cookbook 'postgres', path:  '../postgres/'
-
+cookbook 'python', path:  '../python/'
 
 metadata

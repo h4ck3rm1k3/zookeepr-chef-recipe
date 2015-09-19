@@ -20,6 +20,455 @@ describe 'zookeepr::default' do
       'zookeepr::default'
     )
   }
- 
+
+# chef_run
+# described_cookbook
+# described_recipe
+# stub_command
+# stub_data_bag
+# stub_data_bag_item
+# stub_node
+# stub_search
+# install_yum_package
+# purge_yum_package
+# remove_yum_package
+# upgrade_yum_package
+# configure_startup_windows_service
+# disable_windows_service
+# enable_windows_service
+# reload_windows_service
+# restart_windows_service
+# start_windows_service
+# stop_windows_service
+# create_user
+# remove_user
+# modify_user
+# manage_user
+# lock_user
+# unlock_user
+# create_template
+# create_template_if_missing
+# delete_template
+# touch_template
+# checkout_subversion
+# export_subversion
+# force_export_subversion
+# sync_subversion
+# subscribe_to
+# have_state_attrs
+# install_solaris_package
+# remove_solaris_package
+# install_smartos_package
+# remove_smartos_package
+# upgrade_smartos_package
+# disable_service
+# enable_service
+# reload_service
+# restart_service
+# start_service
+# stop_service
+# run_bash
+# run_csh
+# run_perl
+# run_python
+# run_ruby
+# run_script
+# run_ruby_block
+# install_rpm_package
+# remove_rpm_package
+# upgrade_rpm_package
+# add_route
+# delete_route
+# render_file
+# create_remote_file
+# create_remote_file_if_missing
+# delete_remote_file
+# touch_remote_file
+# create_remote_directory
+# create_remote_directory_if_missing
+# delete_remote_directory
+# create_registry_key
+# create_registry_key_if_missing
+# delete_registry_key
+# delete_key_registry_key
+# now_reboot
+# request_reboot
+# cancel_reboot
+# run_powershell_script
+# install_portage_package
+# purge_portage_package
+# remove_portage_package
+# upgrade_portage_package
+# install_pacman_package
+# purge_pacman_package
+# remove_pacman_package
+# upgrade_pacman_package
+# install_package
+# purge_package
+# reconfig_package
+# remove_package
+# upgrade_package
+# reload_ohai
+# notify
+# disable_mount
+# enable_mount
+# mount_mount
+# remount_mount
+# umount_mount
+# assemble_mdadm
+# create_mdadm
+# stop_mdadm
+# install_macports_package
+# purge_macports_package
+# remove_macports_package
+# upgrade_macports_package
+# write_log
+# create_link
+# delete_link
+# link_to
+# install_ips_package
+# remove_ips_package
+# upgrade_ips_package
+# include_recipe
+# add_ifconfig
+# delete_ifconfig
+# disable_ifconfig
+# enable_ifconfig
+# delete_http_request
+# get_http_request
+# head_http_request
+# options_http_request
+# post_http_request
+# put_http_request
+# create_group
+# manage_group
+# modify_group
+# remove_group
+# checkout_git
+# export_git
+   # sync_git
+   
+   # install_gem_package
+   # purge_gem_package
+   # reconfig_gem_package
+   # remove_gem_package
+   # upgrade_gem_package
+   
+   # install_chef_gem
+   # purge_chef_gem
+   # reconfig_chef_gem
+   # remove_chef_gem
+   # upgrade_chef_gem
+   
+# install_freebsd_package
+# remove_freebsd_package
+# create_file
+# create_file_if_missing
+# delete_file
+# touch_file
+# run_execute
+# run_erl_call
+# create_env
+# delete_env
+# modify_env
+# install_easy_install_package
+# purge_easy_install_package
+# remove_easy_install_package
+# upgrade_easy_install_package
+# do_nothing
+# install_dpkg_package
+# purge_dpkg_package
+# remove_dpkg_package
+# create_directory
+# delete_directory
+# deploy_deploy
+# force_deploy_deploy
+# rollback_deploy
+# create_cron
+# delete_cron
+# create_cookbook_file
+# create_cookbook_file_if_missing
+# delete_cookbook_file
+# touch_cookbook_file
+
+# run_batch
+# install_apt_package
+# purge_apt_package
+# reconfig_apt_package
+# remove_apt_package
+# upgrade_apt_package
+# described_class
+# inspect
+# aggregate_failures
+# be_truthy
+# a_truthy_value
+# be_falsey
+# be_falsy
+# a_falsey_value
+# a_falsy_value
+# be_nil
+# a_nil_value
+# be
+# a_value
+# be_a
+# be_an
+# be_an_instance_of
+# be_instance_of
+# an_instance_of
+# be_a_kind_of
+# be_kind_of
+# a_kind_of
+# be_between
+# a_value_between
+# be_within
+# a_value_within
+# within
+# change
+# a_block_changing
+# changing
+# contain_exactly
+# a_collection_containing_exactly
+# containing_exactly
+# cover
+# a_range_covering
+# covering
+# end_with
+# a_collection_ending_with
+# a_string_ending_with
+# ending_with
+# eq
+# an_object_eq_to
+# eq_to
+# eql
+# an_object_eql_to
+# eql_to
+# equal
+# an_object_equal_to
+# equal_to
+# exist
+# an_object_existing
+# existing
+# have_attributes
+# an_object_having_attributes
+# include
+# a_collection_including
+# a_string_including
+# a_hash_including
+# including
+# all
+# match
+# match_regex
+# an_object_matching
+# a_string_matching
+# matching
+# match_array
+# output
+# a_block_outputting
+# raise_error
+# raise_exception
+# a_block_raising
+# raising
+# respond_to
+# an_object_responding_to
+# responding_to
+# satisfy
+# an_object_satisfying
+# satisfying
+# start_with
+# a_collection_starting_with
+# a_string_starting_with
+# starting_with
+# throw_symbol
+# a_block_throwing
+# throwing
+# yield_control
+# a_block_yielding_control
+# yielding_control
+# yield_with_no_args
+# a_block_yielding_with_no_args
+# yielding_with_no_args
+# yield_with_args
+# a_block_yielding_with_args
+# yielding_with_args
+# yield_successive_args
+# a_block_yielding_successive_args
+# yielding_successive_args
+# expect
+# install_pip_requirements
+# upgrade_pip_requirements
+# nothing_resource
+# install_resource
+# upgrade_resource
+# remove_resource
+# purge_resource
+# reconfig_resource
+# nothing_python_package
+# install_python_package
+# upgrade_python_package
+# remove_python_package
+# purge_python_package
+# reconfig_python_package
+# run_options_resource
+# run_python_runtime_options
+# install_python_runtime
+# uninstall_python_runtime
+# install_python_runtime_pip
+# uninstall_python_runtime_pip
+# run_resource
+# nothing_python_execute
+# run_python_execute
+# uninstall_resource
+# install_python_virtualenv
+# uninstall_python_virtualenv
+# create_python_virtualenv
+# delete_python_virtualenv
+# install_poise_languages_scl
+# uninstall_poise_languages_scl
+# install_poise_languages_system
+# upgrade_poise_languages_system
+# uninstall_poise_languages_system
+# setup_mocks_for_rspec
+# verify_mocks_for_rspec
+# teardown_mocks_for_rspec
+# double
+# instance_double
+# class_double
+# object_double
+# spy
+# instance_spy
+# object_spy
+# class_spy
+# allow_message_expectations_on_nil
+# stub_const
+# hide_const
+# have_received
+# receive
+# receive_messages
+# receive_message_chain
+# allow
+# expect_any_instance_of
+# allow_any_instance_of
+# any_args
+# anything
+# no_args
+# duck_type
+# boolean
+# hash_including
+# array_including
+# hash_excluding
+# hash_not_including
+# instance_of
+# kind_of
+# pending
+# skip
+# subject
+# should
+# should_not
+# is_expected
+# ffi_yajl
+# psych_to_yaml
+# to_yaml
+# to_yaml_properties
+# dclone
+# node_windows_architecture
+# wow64_architecture_override_required?
+# forced_32bit_override_required?
+# wow64_directory
+# with_os_architecture
+# node_supports_windows_architecture?
+# valid_windows_architecture?
+# assert_valid_windows_architecture!
+# is_i386_process_on_x86_64_windows?
+# disable_wow64_file_redirection
+# restore_wow64_file_redirection
+# shell_out
+# shell_out!
+# shell_out_with_systems_locale
+# shell_out_with_systems_locale!
+# run_command_compatible_options
+# get_key_filename
+# key_length_valid?
+# dhparam_pem_valid?
+# key_file_valid?
+# gen_dhparam
+# gen_rsa_key
+# encrypt_rsa_key
+# to_json
+# pretty_print
+# pretty_print_cycle
+# pretty_print_instance_variables
+# pretty_print_inspect
+# nil?
+# ===
+# =~
+# !~
+# eql?
+# hash
+# <=>
+# class
+# singleton_class
+# clone
+# dup
+# taint
+# tainted?
+# untaint
+# untrust
+# untrusted?
+# trust
+# freeze
+# frozen?
+# to_s
+# methods
+# singleton_methods
+# protected_methods
+# private_methods
+# public_methods
+# instance_variables
+# instance_variable_get
+# instance_variable_set
+# instance_variable_defined?
+# remove_instance_variable
+# instance_of?
+# kind_of?
+# is_a?
+# tap
+# send
+# public_send
+# respond_to?
+# extend
+# display
+# method
+# public_method
+# singleton_method
+# define_singleton_method
+# object_id
+# to_enum
+# enum_for
+# gem
+# pretty_inspect
+# deprecated
+
+
+  it "should setup spec" do
+    expect(chef_run).to run_execute("apt-get-update-periodic")
+    expect(chef_run).to create_cookbook_file("/etc/apt/apt.conf.d/15update-stamp")
+    expect(chef_run).to create_directory('/etc/apt/apt.conf.d')
+    expect(chef_run).to create_directory('/var/cache/local')
+    expect(chef_run).to create_directory('/var/cache/local/preseeding')
+    expect(chef_run).to create_template("/etc/apt/apt.conf.d/10recommends") 
+    expect(chef_run).to deploy_application("zookeepr");
+    expect(chef_run).to install_apt_package("python-psycopg2")
+    expect(chef_run).to install_chef_gem("pg")
+    expect(chef_run).to install_git_client("default") 
+    expect(chef_run).to install_package("postgresql") 
+    expect(chef_run).to install_package("python") 
+    expect(chef_run).to install_package("python-dev")
+    expect(chef_run).to install_package('postgresql')
+    expect(chef_run).to install_pip_requirements("requirements.txt")
+    expect(chef_run).to install_python_runtime("2")
+    expect(chef_run).to sync_git("https://github.com/flosokaks/zookeepr.git")
+    expect(chef_run).to create_postgresql_database("zk") 
+
+  end
 
 end
