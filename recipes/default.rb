@@ -14,15 +14,19 @@
 #    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #    GNU General Public License for more details.
 
-#include_recipe 'git::default'
+
 include_recipe 'poise-python'
 include_recipe "database::postgresql"
+include_recipe "apt::default"
 include_recipe "git::default"
 
 
 application 'zookeepr' do
   path       '/srv/zookeepr'
-  repository 'https://github.com/flosokaks/zookeepr.git'
+  #repository 'https://github.com/flosokaks/zookeepr.git'
+  git 'https://github.com/flosokaks/zookeepr.git'
+#  virtualenv
+  pip_requirements "requirements.txt"
   migrate true
   revision "master"
   packages ["libpq-dev", "git-core"]
@@ -33,7 +37,9 @@ application 'zookeepr' do
   #   username "zookeepr"
   #   password "zookeepr"
   # end  
-    
+  gunicorn do
+    port 9000
+  end
 end
 
 
@@ -48,7 +54,6 @@ postgresql_database 'zk' do
 end
 ##########################################
 
-
-git_client 'default' do
-   action :install
- end
+apt_package "python-psycopg2" do
+  action :install
+end

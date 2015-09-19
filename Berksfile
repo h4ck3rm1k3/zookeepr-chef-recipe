@@ -3,6 +3,8 @@ extension 'halite'
 
 cookbook 'application', path: '../application'
 cookbook 'application_python', path: '../application_python'
+#cookbook 'application_git', path: '../application_git'
+cookbook 'application_git', gem: 'poise-application-git'
 cookbook 'apt',  path: '../apt/'
 cookbook 'chef-sugar', path: '../chef-sugar/'
 cookbook 'database',  path: '../database'
