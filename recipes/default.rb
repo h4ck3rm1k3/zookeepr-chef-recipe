@@ -19,6 +19,7 @@ include_recipe 'poise-python'
 include_recipe "database::postgresql"
 include_recipe "git::default"
 
+
 application 'zookeepr' do
   path       '/srv/zookeepr'
   repository 'https://github.com/flosokaks/zookeepr.git'

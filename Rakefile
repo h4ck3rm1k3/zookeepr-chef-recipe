@@ -1,8 +1,7 @@
 
 require 'bundler/gem_helper'
-Bundler::GemHelper.install_tasks :name => "zookeepr"
+Bundler::GemHelper.install_tasks name: 'zookeepr'
 
-#require 'bundler/gem_tasks'
 require 'rubocop/rake_task'
 require 'rspec/core/rake_task'
 require 'yard'
@@ -13,7 +12,7 @@ end
 
 RSpec::Core::RakeTask.new(:spec) do |t|
   t.pattern = %w(spec/**/*_spec.rb)
-  t.rspec_opts =%w(-t ~fork) if RUBY_PLATFORM == 'java'
+  t.rspec_opts = %w(-t ~fork) if RUBY_PLATFORM == 'java'
 end
 
 RSpec::Core::RakeTask.new(:rspec) do |t|
