@@ -21,39 +21,71 @@ include_recipe "apt::default"
 include_recipe "git::default"
 include_recipe "python::package"
 
+require 'openssl'
+md5 = OpenSSL::Digest::MD5.new
+
 application 'zookeepr' do
   path       '/srv/zookeepr'
   #repository 'https://github.com/flosokaks/zookeepr.git'
   git 'https://github.com/flosokaks/zookeepr.git'
 #  virtualenv
-  pip_requirements "requirements.txt"
+  pip_requirements "/srv/zookeepr/requirements.txt"
   migrate true
   revision "master"
   packages ["libpq-dev", "git-core"]
 
-  # database do
-  #   database "zk"
-  #   engine "postgresql_psycopg2"
-  #   username "zookeepr"
-  #   password "zookeepr"
-  # end  
+
   gunicorn do
     port 9000
   end
 end
 
+pgsql_connection_info = {
+  host: '127.0.0.1',
+  port: 5432,
+  username: 'zookeepr',
+  password: node[:authorization][:database][:password]
+}
 
 postgresql_database 'zk' do
-  connection(
-    :host      => '127.0.0.1',
-    :port      => 5432,
-    :username  => 'zookeepr',
-    :password  => node['postgresql']['password']['zookeepr']
-  )
+  connection(pgsql_connection_info )
   action :create
 end
+
+postgresql_database_user 'zookeepr' do
+  connection pgsql_connection_info
+  password md5.digest(node[:authorization][:database][:password])
+  database_name 'zk'
+  privileges [:select, :update, :insert, :delete]
+  host '%' # FIXME: Limit by subnet, or something else?
+  #require_ssl true
+  action [:create, :grant]
+end
+
 ##########################################
 
-apt_package "python-psycopg2" do
-  action :install
+packages_to_install = %w{
+python-elementtidy
+python-psycopg2
+libpq-dev
+libpython-dev
+libxslt1-dev
+libxml2-dev
+python-virtualenv
+python-authkit
+postgresql-9.4
+}
+
+packages_to_install.each do |pkg|
+  apt_package pkg do
+    action :install
+  end
+end
+
+
+template '/srv/zookeepr/development.ini' do
+  source 'development.ini'
+  variables({
+     :password => node[:authorization][:database][:password],
+  })
 end
