@@ -18,3 +18,10 @@ bin/*
 
 .kitchen/
 .kitchen.local.yml
+/.uploaded-cookbook-version.json
+/error.txt
+/hide/test.rb
+/hide/zookeepr.gemspec
+/report.txt
+/spec/git_spec.rb
+/trace.txt
