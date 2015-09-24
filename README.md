@@ -58,6 +58,18 @@ Testing
 
     rspec spec/first_spec.rb
 
+# Test the cookbook locally 
+
+in the dir chef/cookbooks/zookeepr
+
+    bundle exec  chef-apply recipes/default.rb  -l debug
+
+# setup berks
+
+in chef/cookbooks/zookeepr
+
+    bundle exec berks init .
+
 Contributing
 ------------
 
