@@ -30,9 +30,9 @@ application 'zookeepr' do
   git 'https://github.com/flosokaks/zookeepr.git'
 #  virtualenv
   pip_requirements "/srv/zookeepr/requirements.txt"
-  migrate true
-  revision "master"
-  packages ["libpq-dev", "git-core"]
+  #migrate true
+  #revision "master"
+  #packages ["libpq-dev", "git-core"]
 
 
   gunicorn do
@@ -534,6 +534,7 @@ end
 execute 'upgrade alembic' do
   command ' alembic --config development.ini upgrade head '
 end
+
 
 
 
