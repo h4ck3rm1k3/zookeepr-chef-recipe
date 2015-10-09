@@ -14,32 +14,11 @@
 #    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #    GNU General Public License for more details.
 
-password = node[:authorization][:database][:password]
-template '/srv/zookeepr/development.ini' do
-  source 'development.ini'
-  variables(
-    {
-      :password => password
-    }
-  )
-end
-
-include_recipe 'poise-python'
-include_recipe "database::postgresql"
-include_recipe "apt::default"
-include_recipe "git::default"
-include_recipe "python::package"
-
-
-require 'openssl'
-md5 = OpenSSL::Digest::MD5.new
-
-
-# self.methods.each do |x|
-#   file,line =  self.method(x).source_location
-#   m = self.method(x)
-#   puts "Check #{x}  #{m} File #{file} Line #{line}"
-# end
+# include_recipe 'poise-python'
+# include_recipe "database::postgresql"
+# include_recipe "apt::default"
+# include_recipe "git::default"
+# include_recipe "python::package"
 
 application 'zookeepr' do
   path       '/srv/zookeepr'
@@ -51,11 +30,33 @@ application 'zookeepr' do
   #revision "master"
   #packages ["libpq-dev", "git-core"]
 
-
   gunicorn do
     port 9000
   end
+  action :deploy
 end
+
+password = node[:authorization][:database][:password]
+template '/srv/zookeepr/development.ini' do
+  source 'development.ini'
+  variables(
+    {
+      :password => password
+    }
+  )
+end
+
+
+
+require 'openssl'
+md5 = OpenSSL::Digest::MD5.new
+
+
+# self.methods.each do |x|
+#   file,line =  self.method(x).source_location
+#   m = self.method(x)
+#   puts "Check #{x}  #{m} File #{file} Line #{line}"
+# end
 
 pgsql_connection_info = {
   host: '127.0.0.1',
@@ -99,17 +100,9 @@ packages_to_install.each do |pkg|
   end
 end
 
-# pp node
-# pp node[:authorization]
-# pp node[:authorization][:database]
-# pp node[:authorization][:database][:password]
-
-
-
-
-
-
-execute 'upgrade alembic' do
-  command ' alembic --config development.ini upgrade head '
-end
-
+# need to change the directoy
+#STDOUT: FAILED: No config file 'development.ini' found, or file has no '[alembic]' section
+# execute 'upgrade alembic' do
+#   #log_level :debug
+#   command ' alembic --config development.ini upgrade head '
+# end
